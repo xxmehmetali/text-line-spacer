@@ -1,0 +1,154 @@
+:root {
+    color-scheme: light;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f6;
+    color: #1f2933;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.uploader form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.file-input {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background: #1d4ed8;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.file-input input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+.button.download:hover {
+    background: #1e293b;
+}
+
+.alert {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.results {
+    margin-top: 2rem;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 35px -25px rgba(15, 23, 42, 0.5);
+}
+
+.preview-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-bottom: 2rem;
+}
+
+.preview img {
+    width: 100%;
+    border-radius: 12px;
+    background: #f9fafb;
+    box-shadow: 0 10px 25px -20px rgba(15, 23, 42, 0.6);
+}
+
+.caption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+    text-align: center;
+}
+
+.text-output {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-bottom: 2rem;
+}
+
+pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 1rem;
+    border-radius: 12px;
+    max-height: 260px;
+    overflow: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.button.download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: #0284c7;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    transition: background 0.2s ease;
+}
+
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .results {
+        padding: 1.5rem;
+    }
+}

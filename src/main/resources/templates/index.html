@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Line Spacer</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Text Line Spacer</h1>
+        <p>Upload an image that contains text and we will add a blank line after every line of text.</p>
+    </header>
+
+    <section class="uploader">
+        <form th:action="@{/process}" method="post" enctype="multipart/form-data">
+            <label class="file-input">
+                <span>Select an image</span>
+                <input type="file" name="image" accept="image/*" required>
+            </label>
+            <button type="submit">Process image</button>
+        </form>
+        <div class="alert error" th:if="${error}" th:text="${error}"></div>
+    </section>
+
+    <section th:if="${result}" class="results">
+        <h2>Preview</h2>
+        <div class="preview-grid">
+            <div class="preview">
+                <h3>Original</h3>
+                <img th:src="${result.originalDataUrl}" th:alt="'Original image ' + ${result.originalFilename}">
+                <p class="caption" th:text="${result.originalFilename}"></p>
+            </div>
+            <div class="preview">
+                <h3>Processed</h3>
+                <img th:src="${result.processedDataUrl}" th:alt="'Processed image ' + ${result.processedFilename}">
+                <p class="caption" th:text="${result.processedFilename}"></p>
+            </div>
+        </div>
+
+        <div class="text-output">
+            <div>
+                <h3>Extracted text</h3>
+                <pre th:text="${result.originalText}"></pre>
+            </div>
+            <div>
+                <h3>Text with blank lines</h3>
+                <pre th:text="${result.spacedText}"></pre>
+            </div>
+        </div>
+
+        <a class="button download"
+           th:href="@{'/download/' + ${result.downloadId}}"
+           th:attr="download=${result.processedFilename}">
+            Download processed image
+        </a>
+    </section>
+</div>
+</body>
+</html>
